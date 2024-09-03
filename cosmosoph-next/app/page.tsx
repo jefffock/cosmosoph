@@ -1,5 +1,8 @@
 // app/users/page.tsx
-import { fetchFromWorker } from "@/lib/api";
+import { Aladin } from "next/font/google";
+import Categories from "./components/Categories";
+import WisdomTableRow from "./components/wisdom/WisdomRow";
+import AllWisdom from "./components/wisdom/AllWisdom";
 
 interface User {
   id: number;
@@ -8,16 +11,12 @@ interface User {
 }
 
 export default async function UsersPage() {
-  const users = await fetchFromWorker<User[]>('/api/users');
 
   return (
     <div>
-      <h1>Users</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name} ({user.email})</li>
-        ))}
-      </ul>
+
+		  <Categories />
+		  <AllWisdom />
     </div>
   );
 }
