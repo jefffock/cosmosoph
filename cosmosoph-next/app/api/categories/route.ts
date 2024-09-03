@@ -7,7 +7,8 @@ import { Category } from "../../../../shared/types";
 export async function GET(): Promise<NextResponse<Category[] | { error: string }>> {
 	try {
 		const categories = await fetchFromWorker<Category[]>('categories');
-		console.log('Fetched categories in route.ts:>>', categories);
+		console.log('rowsss:>>', categories);
+
 		return NextResponse.json(categories);
 	} catch (error) {
 		console.error('Error fetching categories:', error);

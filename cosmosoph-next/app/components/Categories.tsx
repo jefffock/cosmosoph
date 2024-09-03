@@ -12,7 +12,6 @@ export default function Categories(): React.ReactElement {
     async function fetchCategories() {
       try {
         const data = await fetch('/api/categories').then(res => res.json());
-        console.log('Fetched categories in categories component:', data); 
         setCategories(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -23,19 +22,17 @@ export default function Categories(): React.ReactElement {
     fetchCategories();
   }, []);
 
-  console.log('Categories in categories component:', categories);
-
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
 		<h1>Categories Hierarchy</h1>
-    {JSON.stringify(categories)}
 		{categories?.length > 0  ? categories.map(cat => (
 			<div key={cat.category_id}>
 				{cat.name}
 			</div>
-		)) : null}					    </div>
+		)) : null}					    
+    </div>
   );
 }
