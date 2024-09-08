@@ -8,13 +8,13 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -29,5 +29,57 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.wisdom-container {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.wisdom-card-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.wisdom-card-container > div {
+  display: flex;
+  width: 200%;
+  height: 100%;
+}
+
+.wisdom-card-container > div > div {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.wisdom-card-slider {
+  display: flex;
+  width: 200%; /* Doubled to accommodate half-width cards */
+  transition: transform 1s ease-in-out;
+}
+
+.wisdom-card-wrapper {
+  width: 50%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.wisdom-card {
+  max-width: 600px;
+  width: 100%;
+}
+
+.nav-button {
+  min-width: 100px; /* Ensures buttons have a minimum width */
+}
+
+@media (max-width: 400px) {
+  .nav-button {
+    font-size: 14px; /* Slightly smaller font on very small screens */
+    padding: 8px 16px; /* Adjusted padding for smaller screens */
   }
 }

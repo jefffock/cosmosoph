@@ -1,5 +1,5 @@
 import { addCorsHeaders } from './utils';
-import { handleCategories, handleCategoriesHierarchy } from './handlers/categories';
+import { handleCategories, handleCategoriesHierarchyCTE } from './handlers/categories';
 import { handleWisdom } from './handlers/wisdom';
 import { Env } from './types';
 
@@ -19,11 +19,11 @@ export default {
 				case '/api/categories':
 					console.log('Handling /api/categories route');
 					// response = await handleCategories(env);
-					response = await handleCategoriesHierarchy(env)
+					response = await handleCategoriesHierarchyCTE(env)
 					break;
 				case '/api/wisdom':
 					console.log('Handling /api/wisdom route');
-					response = await handleWisdom(env);
+					response = await handleWisdom(env, request);
 					break;
 				case '/':
 					response = new Response('Welcome to my Neon API. Try accessing /api/users, /api/categories, or /api/wisdom', {

@@ -1,13 +1,5 @@
-// app/users/page.tsx
-import AllWisdom from "./components/wisdom/AllWisdom";
-import CategoryTree from "./components/CategoryTree";
+import Home from "@/components/Home";
 
-export default async function UsersPage() {
-
-  return (
-    <div>
-      <CategoryTree/>		 
-      <AllWisdom />
-    </div>
-  );
+export default async function HomePage() {
+  return <Home />;
 }
